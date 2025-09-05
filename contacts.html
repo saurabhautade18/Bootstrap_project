@@ -30,9 +30,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="index.html"
-                  >Home</a
-                >
+                <a class="nav-link" aria-current="page" href="index.html">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="products.html">Products</a>
@@ -44,9 +42,7 @@
                 <a class="nav-link" href="about.html">About us</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active bg-danger" href="contacts.html"
-                  >Contacts</a
-                >
+                <a class="nav-link active bg-danger" href="contacts.html">Contacts</a>
               </li>
               <li class="nav-item dropdown">
                 <a
@@ -59,12 +55,8 @@
                   Gallery
                 </a>
                 <ul class="dropdown-menu">
-                  <li>
-                    <a class="dropdown-item" href="photos.html">Photos</a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="videos.html">Videos</a>
-                  </li>
+                  <li><a class="dropdown-item" href="photos.html">Photos</a></li>
+                  <li><a class="dropdown-item" href="videos.html">Videos</a></li>
                 </ul>
               </li>
             </ul>
@@ -78,143 +70,180 @@
         <div class="container">
           <div class="row">
             <div class="col-md-6 border border-black m-4 p-4">
-              <form>
+              <form onsubmit="return validate()">
                 <h2>Contact Form</h2>
-                <div class="row mt-4">
-                  <div class="col-md-6">
-                    <label for="floatingInput">Full Name</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="floatingInput"
-                      placeholder="Enter name"
-                    />
-                  </div>
-                  <div class="col-md-6">
-                    <label for="floatingInput">Email address</label>
-                    <input
-                      type="email"
-                      class="form-control"
-                      id="floatingInput"
-                      placeholder="name@example.com"
-                    />
-                  </div>
+                <div id="successAlert" class="alert alert-success d-none" role="alert">
+                  Form submitted successfully!
+                </div>
 
                 <div class="row mt-4">
-                      <div class="col-md-3">
-                        <label for="floatingInput">Phone Number</label>
-                        <input
-                          type="tel"
-                          class="form-control"
-                          id="floatingInput"
-                          placeholder="Enter phone no"
-                        />
-                      </div>
-                      <div class="col-md-6">
-                        <div class="row">
-                          <p>Select Gender</p>
-                          <div class="col-md-5">
-                            <input
-                              class="form-check-input"
-                              type="radio"
-                              name="flexRadioDefault"
-                              id="flexRadioDefault1"
-                            />
-                            <label
-                              class="form-check-label"
-                              for="flexRadioDefault1"
-                            >
-                              Male
-                            </label>
-                          </div>
-                            
-                          <div class="col-md-5">
-                            <input
-                              class="form-check-input"
-                              type="radio"
-                              name="flexRadioDefault"
-                              id="flexRadioDefault1"
-                            />
-                            <label
-                              class="form-check-label"
-                              for="flexRadioDefault1"
-                            >
-                              Female
-                            </label>
-                          </div>
-
-                    </div>
-                    </div>
-                    <div class="col-md-3">
-                      <label for="floatingInput">Age</label>
-                        <input
-                          type="age"
-                          class="form-control"
-                          id="floatingInput"
-                          placeholder="Enter Age">
-                    </div>
-                    </div>
-                    </div>
-
-                    <div class="row mt-4">
-
-                      <div class="col-md-4">
-                        <label for="floatingInput">Country Code</label>
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="floatingInput"
-                          placeholder="Countrycode">
-                      </div>
-                      <div class="col-md-4">
-                        <p>Select State</p>
-                        <select class="form-select" aria-label="Default select example">
-  <option selected>Open this select menu</option>
-  <option value="1">Maharashtra</option>
-  <option value="2">Delhi</option>
-  <option value="3">Kerla</option>
-</select>
-                      </div>
-                      
-                      <div class="col-md-4">
-                         <p>Select Your City</p>
-                        <select class="form-select" aria-label="Default select example">
-  <option selected>Open this select menu</option>
-  <option value="1">Pune</option>
-  <option value="2">Mumbai</option>
-  <option value="3">Nashik</option>
-</select>
-                      </div>
-                    </div>
-
-                    
-                      <div class="mt-4"> 
-                        <p class="input-group-text d-inline">Comments</p>
-  <textarea class="form-control" aria-label="With textarea"></textarea></div>
-                      
-                  
-              <div class="row">
-                      <div class="col-md-12">
-                        <input type="button" class="btn btn-primary mt-4" value="Submit">
-                      </div>
-                 </div>
-                    
+                  <div class="col-md-6">
+                    <label for="fullname">Full Name</label>
+                    <input type="text" class="form-control" id="fullname" placeholder="Enter name" />
+                    <span id="nameError" class="text-danger"></span>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="fullemail">Email address</label>
+                    <input type="email" class="form-control" id="fullemail" placeholder="name@example.com" />
+                    <span id="emailError" class="text-danger"></span>
                   </div>
                 </div>
+
+                <div class="row mt-4">
+                  <div class="col-md-3">
+                    <label for="mobile">Phone Number</label>
+                    <input type="tel" class="form-control" id="mobile" placeholder="Enter phone no" />
+                    <span id="mobileError" class="text-danger"></span>
+                  </div>
+
+                  <div class="col-md-6">
+                    <p>Select Gender</p>
+                    <div class="row">
+                      <div class="col-md-5">
+                        <input class="form-check-input" type="radio" name="gender" id="male" value="Male" />
+                        <label class="form-check-label" for="male">Male</label>
+                      </div>
+                      <div class="col-md-5">
+                        <input class="form-check-input" type="radio" name="gender" id="female" value="Female" />
+                        <label class="form-check-label" for="female">Female</label>
+                      </div>
+                      <span id="checkError" class="text-danger"></span>
+                    </div>
+                  </div>
+
+                  <div class="col-md-3">
+                    <label for="age">Age</label>
+                    <input type="number" class="form-control" id="age" placeholder="Enter Age" />
+                    <span id="ageError" class="text-danger"></span>
+                  </div>
+                </div>
+
+                <div class="row mt-4">
+                  <div class="col-md-4">
+                    <label for="countryCode">Country Code</label>
+                    <input type="text" class="form-control" id="countryCode" placeholder="Countrycode">
+                  </div>
+                  <div class="col-md-4">
+                    <p>Select State</p>
+                    <select class="form-select" aria-label="Default select example">
+                      <option selected>Open this select menu</option>
+                      <option value="1">Maharashtra</option>
+                      <option value="2">Delhi</option>
+                      <option value="3">Kerala</option>
+                    </select>
+                  </div>
+                  <div class="col-md-4">
+                    <p>Select Your City</p>
+                    <select class="form-select" aria-label="Default select example">
+                      <option selected>Open this select menu</option>
+                      <option value="1">Pune</option>
+                      <option value="2">Mumbai</option>
+                      <option value="3">Nashik</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="row mt-4">
+                  <div class="col-md-6">
+                    <label for="pass">Enter Password</label>
+                    <input type="password" id="pass" name="password" class="form-control mt-2" placeholder="Enter Password">
+                    <span id="passwordError" class="text-danger"></span>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="confirmpass">Confirm Password</label>
+                    <input type="password" id="confirmpass" name="confirm-password" class="form-control mt-2" placeholder="Confirm Password">
+                    <span id="confirmError" class="text-danger"></span>
+                  </div>
+                </div>
+
+                <div class="mt-4">
+                  <label for="textar">Comments</label>
+                  <textarea class="form-control" id="textar" aria-label="With textarea"></textarea>
+                  <span id="textError" class="text-danger"></span>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <input type="submit" class="btn btn-primary mt-4" value="Submit">
+                  </div>
+                </div>
+
               </form>
             </div>
-           <div class="col-md-6">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d133629.98848261285!2d73.8569794653807!3d18.52069609998922!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf2e67461101%3A0x828d43bf9d9ee343!2sPune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1755850171665!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+            <div class="col-md-6">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d133629.98848261285!2d73.8569794653807!3d18.52069609998922!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf2e67461101%3A0x828d43bf9d9ee343!2sPune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1755850171665!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
           </div>
         </div>
       </section>
     </main>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+
+    <script>
+      function validate() {
+        // Clear previous errors
+        const errorFields = ["nameError","emailError","mobileError","ageError","passwordError","confirmError","textError","checkError"];
+        errorFields.forEach(id => document.getElementById(id).innerText = "");
+
+        const name = document.getElementById("fullname").value.trim();
+        const email = document.getElementById("fullemail").value.trim();
+        const mobile = document.getElementById("mobile").value.trim();
+        const age = document.getElementById("age").value.trim();
+        const password = document.getElementById("pass").value;
+        const confirmPassword = document.getElementById("confirmpass").value;
+        const comments = document.getElementById("textar").value.trim();
+        const gender = document.querySelector('input[name="gender"]:checked');
+
+        let isValid = true;
+
+        // Name
+        if(name === "") { document.getElementById("nameError").innerText="Name is required."; isValid=false; }
+        else if(name.length<3){ document.getElementById("nameError").innerText="Name must be at least 3 characters."; isValid=false; }
+        else if(!/^[a-zA-Z\s]+$/.test(name)){ document.getElementById("nameError").innerText="Name can only contain letters and spaces."; isValid=false; }
+
+        // Email
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if(email===""){ document.getElementById("emailError").innerText="Email is required."; isValid=false; }
+        else if(!emailPattern.test(email)){ document.getElementById("emailError").innerText="Invalid email format."; isValid=false; }
+
+        // Mobile
+        if(mobile===""){ document.getElementById("mobileError").innerText="Mobile number is required."; isValid=false; }
+        else if(!/^\d{10}$/.test(mobile)){ document.getElementById("mobileError").innerText="Mobile number must be 10 digits."; isValid=false; }
+
+        // Age
+        if(age===""){ document.getElementById("ageError").innerText="Age is required."; isValid=false; }
+        else if(isNaN(age) || age<1 || age>120){ document.getElementById("ageError").innerText="Age must be between 1 and 120."; isValid=false; }
+
+        // Password
+        if(password===""){ document.getElementById("passwordError").innerText="Password is required."; isValid=false; }
+        else if(password.length<6){ document.getElementById("passwordError").innerText="Password must be at least 6 characters."; isValid=false; }
+        else if(!/(?=.*[0-9])/.test(password)){ document.getElementById("passwordError").innerText="Password must contain a number."; isValid=false; }
+        else if(!/(?=.*[a-z])/.test(password)){ document.getElementById("passwordError").innerText="Password must contain a lowercase letter."; isValid=false; }
+        else if(!/(?=.*[A-Z])/.test(password)){ document.getElementById("passwordError").innerText="Password must contain an uppercase letter."; isValid=false; }
+        else if(!/(?=.*[@$!%*?&])/.test(password)){ document.getElementById("passwordError").innerText="Password must contain a special character."; isValid=false; }
+
+        // Confirm Password
+        if(confirmPassword===""){ document.getElementById("confirmError").innerText="Please confirm your password."; isValid=false; }
+        else if(password!==confirmPassword){ document.getElementById("confirmError").innerText="Passwords do not match."; isValid=false; }
+
+        // Comments
+        if(comments===""){ document.getElementById("textError").innerText="Comments are required."; isValid=false; }
+        else if(comments.length<10){ document.getElementById("textError").innerText="Comments must be at least 10 characters."; isValid=false; }
+
+        // Gender
+        if(!gender){ document.getElementById("checkError").innerText="Please select your gender!"; isValid=false; }
+
+        // Success alert
+        if(isValid){
+          document.getElementById("successAlert").classList.remove("d-none");
+        } else{
+          document.getElementById("successAlert").classList.add("d-none");
+        }
+
+        return isValid;
+      }
+    </script>
   </body>
 </html>
